@@ -10,9 +10,9 @@ part 'image_message.g.dart';
 /// A class that represents image message.
 @JsonSerializable()
 @immutable
-abstract class ImageMessage extends Message {
+abstract class ImageMessageType extends Message {
   /// Creates an image message.
-  const ImageMessage._({
+  const ImageMessageType._({
     required super.author,
     super.createdAt,
     this.height,
@@ -31,7 +31,7 @@ abstract class ImageMessage extends Message {
     this.width,
   }) : super(type: type ?? MessageType.image);
 
-  const factory ImageMessage({
+  const factory ImageMessageType({
     required ChatUser author,
     int? createdAt,
     double? height,
@@ -48,24 +48,24 @@ abstract class ImageMessage extends Message {
     int? updatedAt,
     required String uri,
     double? width,
-  }) = _ImageMessage;
+  }) = _ImageMessageType;
 
   /// Creates an image message from a map (decoded JSON).
-  factory ImageMessage.fromJson(Map<String, dynamic> json) =>
-      _$ImageMessageFromJson(json);
+  factory ImageMessageType.fromJson(Map<String, dynamic> json) =>
+      _$ImageMessageTypeFromJson(json);
 
   /// Creates a full image message from a partial one.
-  factory ImageMessage.fromPartial({
+  factory ImageMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
-    required PartialImage partialImage,
+    required PartialImageMessageType partialImage,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _ImageMessage(
+  }) => _ImageMessageType(
     author: author,
     createdAt: createdAt,
     height: partialImage.height,
@@ -140,12 +140,12 @@ abstract class ImageMessage extends Message {
 
   /// Converts an image message to the map representation, encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$ImageMessageToJson(this);
+  Map<String, dynamic> toJson() => _$ImageMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _ImageMessage extends ImageMessage {
-  const _ImageMessage({
+class _ImageMessageType extends ImageMessageType {
+  const _ImageMessageType({
     required super.author,
     super.createdAt,
     super.height,
@@ -181,7 +181,7 @@ class _ImageMessage extends ImageMessage {
     dynamic updatedAt = _Unset,
     String? uri,
     dynamic width = _Unset,
-  }) => _ImageMessage(
+  }) => _ImageMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     height: height == _Unset ? this.height : height as double?,

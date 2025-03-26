@@ -11,9 +11,9 @@ part 'custom_message.g.dart';
 /// you want.
 @JsonSerializable()
 @immutable
-abstract class CustomMessage extends Message {
+abstract class CustomMessageType extends Message {
   /// Creates a custom message.
-  const CustomMessage._({
+  const CustomMessageType._({
     required super.author,
     super.createdAt,
     required super.id,
@@ -27,7 +27,7 @@ abstract class CustomMessage extends Message {
     super.updatedAt,
   }) : super(type: type ?? MessageType.custom);
 
-  const factory CustomMessage({
+  const factory CustomMessageType({
     required ChatUser author,
     int? createdAt,
     required String id,
@@ -39,24 +39,24 @@ abstract class CustomMessage extends Message {
     Status? status,
     MessageType? type,
     int? updatedAt,
-  }) = _CustomMessage;
+  }) = _CustomMessageType;
 
   /// Creates a custom message from a map (decoded JSON).
-  factory CustomMessage.fromJson(Map<String, dynamic> json) =>
-      _$CustomMessageFromJson(json);
+  factory CustomMessageType.fromJson(Map<String, dynamic> json) =>
+      _$CustomMessageTypeFromJson(json);
 
   /// Creates a full custom message from a partial one.
-  factory CustomMessage.fromPartial({
+  factory CustomMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
-    required PartialCustom partialCustom,
+    required PartialCustomMessageType partialCustom,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _CustomMessage(
+  }) => _CustomMessageType(
     author: author,
     createdAt: createdAt,
     id: id,
@@ -102,12 +102,12 @@ abstract class CustomMessage extends Message {
   /// Converts a custom message to the map representation,
   /// encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$CustomMessageToJson(this);
+  Map<String, dynamic> toJson() => _$CustomMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _CustomMessage extends CustomMessage {
-  const _CustomMessage({
+class _CustomMessageType extends CustomMessageType {
+  const _CustomMessageType({
     required super.author,
     super.createdAt,
     required super.id,
@@ -133,7 +133,7 @@ class _CustomMessage extends CustomMessage {
     dynamic showStatus = _Unset,
     dynamic status = _Unset,
     dynamic updatedAt = _Unset,
-  }) => _CustomMessage(
+  }) => _CustomMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     id: id ?? this.id,

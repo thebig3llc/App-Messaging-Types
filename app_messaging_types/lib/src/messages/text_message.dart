@@ -11,9 +11,9 @@ part 'text_message.g.dart';
 /// A class that represents text message.
 @JsonSerializable()
 @immutable
-abstract class TextMessage extends Message {
+abstract class TextMessageType extends Message {
   /// Creates a text message.
-  const TextMessage._({
+  const TextMessageType._({
     required super.author,
     super.createdAt,
     required super.id,
@@ -29,7 +29,7 @@ abstract class TextMessage extends Message {
     super.updatedAt,
   }) : super(type: type ?? MessageType.text);
 
-  const factory TextMessage({
+  const factory TextMessageType({
     required ChatUser author,
     int? createdAt,
     required String id,
@@ -43,24 +43,24 @@ abstract class TextMessage extends Message {
     required String text,
     MessageType? type,
     int? updatedAt,
-  }) = _TextMessage;
+  }) = _TextMessageType;
 
   /// Creates a text message from a map (decoded JSON).
-  factory TextMessage.fromJson(Map<String, dynamic> json) =>
-      _$TextMessageFromJson(json);
+  factory TextMessageType.fromJson(Map<String, dynamic> json) =>
+      _$TextMessageTypeFromJson(json);
 
   /// Creates a full text message from a partial one.
-  factory TextMessage.fromPartial({
+  factory TextMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
-    required PartialText partialText,
+    required PartialTextMessageType partialText,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _TextMessage(
+  }) => _TextMessageType(
     author: author,
     createdAt: createdAt,
     id: id,
@@ -117,12 +117,12 @@ abstract class TextMessage extends Message {
 
   /// Converts a text message to the map representation, encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$TextMessageToJson(this);
+  Map<String, dynamic> toJson() => _$TextMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _TextMessage extends TextMessage {
-  const _TextMessage({
+class _TextMessageType extends TextMessageType {
+  const _TextMessageType({
     required super.author,
     super.createdAt,
     required super.id,
@@ -152,7 +152,7 @@ class _TextMessage extends TextMessage {
     dynamic status = _Unset,
     String? text,
     dynamic updatedAt = _Unset,
-  }) => _TextMessage(
+  }) => _TextMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     id: id ?? this.id,

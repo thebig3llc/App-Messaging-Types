@@ -10,9 +10,9 @@ part 'file_message.g.dart';
 /// A class that represents file message.
 @JsonSerializable()
 @immutable
-abstract class FileMessage extends Message {
+abstract class FileMessageType extends Message {
   /// Creates a file message.
-  const FileMessage._({
+  const FileMessageType._({
     required super.author,
     super.createdAt,
     required super.id,
@@ -31,7 +31,7 @@ abstract class FileMessage extends Message {
     required this.uri,
   }) : super(type: type ?? MessageType.file);
 
-  const factory FileMessage({
+  const factory FileMessageType({
     required ChatUser author,
     int? createdAt,
     required String id,
@@ -48,25 +48,25 @@ abstract class FileMessage extends Message {
     MessageType? type,
     int? updatedAt,
     required String uri,
-  }) = _FileMessage;
+  }) = _FileMessageType;
 
   /// Creates a file message from a map (decoded JSON).
-  factory FileMessage.fromJson(Map<String, dynamic> json) =>
-      _$FileMessageFromJson(json);
+  factory FileMessageType.fromJson(Map<String, dynamic> json) =>
+      _$FileMessageTypeFromJson(json);
 
   /// Creates a full file message from a partial one.
-  factory FileMessage.fromPartial({
+  factory FileMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
     bool? isLoading,
-    required PartialFile partialFile,
+    required PartialFileMessageType partialFile,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _FileMessage(
+  }) => _FileMessageType(
     author: author,
     createdAt: createdAt,
     id: id,
@@ -141,12 +141,12 @@ abstract class FileMessage extends Message {
 
   /// Converts a file message to the map representation, encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$FileMessageToJson(this);
+  Map<String, dynamic> toJson() => _$FileMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _FileMessage extends FileMessage {
-  const _FileMessage({
+class _FileMessageType extends FileMessageType {
+  const _FileMessageType({
     required super.author,
     super.createdAt,
     required super.id,
@@ -184,7 +184,7 @@ class _FileMessage extends FileMessage {
     dynamic updatedAt = _Unset,
     String? uri,
     dynamic width = _Unset,
-  }) => _FileMessage(
+  }) => _FileMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     id: id ?? this.id,

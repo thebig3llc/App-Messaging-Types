@@ -6,7 +6,9 @@ part of 'text_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TextMessage _$TextMessageFromJson(Map<String, dynamic> json) => TextMessage(
+TextMessageType _$TextMessageTypeFromJson(
+  Map<String, dynamic> json,
+) => TextMessageType(
   author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
   createdAt: (json['createdAt'] as num?)?.toInt(),
   id: json['id'] as String,
@@ -28,7 +30,7 @@ TextMessage _$TextMessageFromJson(Map<String, dynamic> json) => TextMessage(
   updatedAt: (json['updatedAt'] as num?)?.toInt(),
 );
 
-Map<String, dynamic> _$TextMessageToJson(TextMessage instance) =>
+Map<String, dynamic> _$TextMessageTypeToJson(TextMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

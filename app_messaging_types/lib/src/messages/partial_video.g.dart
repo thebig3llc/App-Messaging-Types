@@ -6,7 +6,9 @@ part of 'partial_video.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PartialVideo _$PartialVideoFromJson(Map<String, dynamic> json) => PartialVideo(
+PartialVideoMessageType _$PartialVideoMessageTypeFromJson(
+  Map<String, dynamic> json,
+) => PartialVideoMessageType(
   height: (json['height'] as num?)?.toDouble(),
   metadata: json['metadata'] as Map<String, dynamic>?,
   name: json['name'] as String,
@@ -19,13 +21,14 @@ PartialVideo _$PartialVideoFromJson(Map<String, dynamic> json) => PartialVideo(
   width: (json['width'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$PartialVideoToJson(PartialVideo instance) =>
-    <String, dynamic>{
-      'height': instance.height,
-      'metadata': instance.metadata,
-      'name': instance.name,
-      'repliedMessage': instance.repliedMessage,
-      'size': instance.size,
-      'uri': instance.uri,
-      'width': instance.width,
-    };
+Map<String, dynamic> _$PartialVideoMessageTypeToJson(
+  PartialVideoMessageType instance,
+) => <String, dynamic>{
+  'height': instance.height,
+  'metadata': instance.metadata,
+  'name': instance.name,
+  'repliedMessage': instance.repliedMessage,
+  'size': instance.size,
+  'uri': instance.uri,
+  'width': instance.width,
+};

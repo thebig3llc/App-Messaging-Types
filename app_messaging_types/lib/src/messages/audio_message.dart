@@ -10,9 +10,9 @@ part 'audio_message.g.dart';
 /// A class that represents audio message.
 @JsonSerializable()
 @immutable
-abstract class AudioMessage extends Message {
+abstract class AudioMessageType extends Message {
   /// Creates an audio message.
-  const AudioMessage._({
+  const AudioMessageType._({
     required super.author,
     super.createdAt,
     required this.duration,
@@ -32,7 +32,7 @@ abstract class AudioMessage extends Message {
     this.waveForm,
   }) : super(type: type ?? MessageType.audio);
 
-  const factory AudioMessage({
+  const factory AudioMessageType({
     required ChatUser author,
     int? createdAt,
     required Duration duration,
@@ -50,24 +50,24 @@ abstract class AudioMessage extends Message {
     int? updatedAt,
     required String uri,
     List<double>? waveForm,
-  }) = _AudioMessage;
+  }) = _AudioMessageType;
 
   /// Creates an audio message from a map (decoded JSON).
-  factory AudioMessage.fromJson(Map<String, dynamic> json) =>
-      _$AudioMessageFromJson(json);
+  factory AudioMessageType.fromJson(Map<String, dynamic> json) =>
+      _$AudioMessageTypeFromJson(json);
 
   /// Creates a full audio message from a partial one.
-  factory AudioMessage.fromPartial({
+  factory AudioMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
-    required PartialAudio partialAudio,
+    required PartialAudioMessageType partialAudio,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _AudioMessage(
+  }) => _AudioMessageType(
     author: author,
     createdAt: createdAt,
     duration: partialAudio.duration,
@@ -148,12 +148,12 @@ abstract class AudioMessage extends Message {
 
   /// Converts an audio message to the map representation, encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$AudioMessageToJson(this);
+  Map<String, dynamic> toJson() => _$AudioMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _AudioMessage extends AudioMessage {
-  const _AudioMessage({
+class _AudioMessageType extends AudioMessageType {
+  const _AudioMessageType({
     required super.author,
     super.createdAt,
     required super.duration,
@@ -191,7 +191,7 @@ class _AudioMessage extends AudioMessage {
     dynamic updatedAt = _Unset,
     String? uri,
     dynamic waveForm = _Unset,
-  }) => _AudioMessage(
+  }) => _AudioMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     duration: duration ?? this.duration,

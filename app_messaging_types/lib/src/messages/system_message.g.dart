@@ -6,8 +6,8 @@ part of 'system_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SystemMessage _$SystemMessageFromJson(Map<String, dynamic> json) =>
-    SystemMessage(
+SystemMessageType _$SystemMessageTypeFromJson(Map<String, dynamic> json) =>
+    SystemMessageType(
       author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: (json['createdAt'] as num?)?.toInt(),
       id: json['id'] as String,
@@ -27,7 +27,7 @@ SystemMessage _$SystemMessageFromJson(Map<String, dynamic> json) =>
       updatedAt: (json['updatedAt'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$SystemMessageToJson(SystemMessage instance) =>
+Map<String, dynamic> _$SystemMessageTypeToJson(SystemMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

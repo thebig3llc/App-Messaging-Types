@@ -6,7 +6,9 @@ part of 'partial_text.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PartialText _$PartialTextFromJson(Map<String, dynamic> json) => PartialText(
+PartialTextMessageType _$PartialTextMessageTypeFromJson(
+  Map<String, dynamic> json,
+) => PartialTextMessageType(
   metadata: json['metadata'] as Map<String, dynamic>?,
   previewData:
       json['previewData'] == null
@@ -19,10 +21,11 @@ PartialText _$PartialTextFromJson(Map<String, dynamic> json) => PartialText(
   text: json['text'] as String,
 );
 
-Map<String, dynamic> _$PartialTextToJson(PartialText instance) =>
-    <String, dynamic>{
-      'metadata': instance.metadata,
-      'previewData': instance.previewData,
-      'repliedMessage': instance.repliedMessage,
-      'text': instance.text,
-    };
+Map<String, dynamic> _$PartialTextMessageTypeToJson(
+  PartialTextMessageType instance,
+) => <String, dynamic>{
+  'metadata': instance.metadata,
+  'previewData': instance.previewData,
+  'repliedMessage': instance.repliedMessage,
+  'text': instance.text,
+};

@@ -8,12 +8,12 @@ part 'partial_audio.g.dart';
 /// A class that represents partial audio message.
 @JsonSerializable()
 @immutable
-class PartialAudio {
+class PartialAudioMessageType {
   /// Creates a partial audio message with all variables audio can have.
   /// Use [AudioMessage] to create a full message.
   /// You can use [AudioMessage.fromPartial] constructor to create a full
   /// message from a partial one.
-  const PartialAudio({
+  const PartialAudioMessageType({
     required this.duration,
     this.metadata,
     this.mimeType,
@@ -25,8 +25,8 @@ class PartialAudio {
   });
 
   /// Creates a partial audio message from a map (decoded JSON).
-  factory PartialAudio.fromJson(Map<String, dynamic> json) =>
-      _$PartialAudioFromJson(json);
+  factory PartialAudioMessageType.fromJson(Map<String, dynamic> json) =>
+      _$PartialAudioMessageTypeFromJson(json);
 
   /// The length of the audio.
   final Duration duration;
@@ -53,5 +53,5 @@ class PartialAudio {
   final List<double>? waveForm;
 
   /// Converts a partial audio message to the map representation, encodable to JSON.
-  Map<String, dynamic> toJson() => _$PartialAudioToJson(this);
+  Map<String, dynamic> toJson() => _$PartialAudioMessageTypeToJson(this);
 }

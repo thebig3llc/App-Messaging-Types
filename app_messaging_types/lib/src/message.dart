@@ -54,21 +54,21 @@ abstract class Message extends Equatable {
 
     switch (type) {
       case MessageType.audio:
-        return AudioMessage.fromJson(json);
+        return AudioMessageType.fromJson(json);
       case MessageType.custom:
-        return CustomMessage.fromJson(json);
+        return CustomMessageType.fromJson(json);
       case MessageType.file:
-        return FileMessage.fromJson(json);
+        return FileMessageType.fromJson(json);
       case MessageType.image:
-        return ImageMessage.fromJson(json);
+        return ImageMessageType.fromJson(json);
       case MessageType.system:
-        return SystemMessage.fromJson(json);
+        return SystemMessageType.fromJson(json);
       case MessageType.text:
-        return TextMessage.fromJson(json);
+        return TextMessageType.fromJson(json);
       case MessageType.unsupported:
-        return UnsupportedMessage.fromJson(json);
+        return UnsupportedMessageType.fromJson(json);
       case MessageType.video:
-        return VideoMessage.fromJson(json);
+        return VideoMessageType.fromJson(json);
     }
   }
 

@@ -6,29 +6,32 @@ part of 'image_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ImageMessage _$ImageMessageFromJson(Map<String, dynamic> json) => ImageMessage(
-  author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
-  createdAt: (json['createdAt'] as num?)?.toInt(),
-  height: (json['height'] as num?)?.toDouble(),
-  id: json['id'] as String,
-  metadata: json['metadata'] as Map<String, dynamic>?,
-  name: json['name'] as String,
-  remoteId: json['remoteId'] as String?,
-  repliedMessage:
-      json['repliedMessage'] == null
-          ? null
-          : Message.fromJson(json['repliedMessage'] as Map<String, dynamic>),
-  roomId: json['roomId'] as String?,
-  showStatus: json['showStatus'] as bool?,
-  size: json['size'] as num,
-  status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
-  type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
-  updatedAt: (json['updatedAt'] as num?)?.toInt(),
-  uri: json['uri'] as String,
-  width: (json['width'] as num?)?.toDouble(),
-);
+ImageMessageType _$ImageMessageTypeFromJson(Map<String, dynamic> json) =>
+    ImageMessageType(
+      author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
+      createdAt: (json['createdAt'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toDouble(),
+      id: json['id'] as String,
+      metadata: json['metadata'] as Map<String, dynamic>?,
+      name: json['name'] as String,
+      remoteId: json['remoteId'] as String?,
+      repliedMessage:
+          json['repliedMessage'] == null
+              ? null
+              : Message.fromJson(
+                json['repliedMessage'] as Map<String, dynamic>,
+              ),
+      roomId: json['roomId'] as String?,
+      showStatus: json['showStatus'] as bool?,
+      size: json['size'] as num,
+      status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
+      updatedAt: (json['updatedAt'] as num?)?.toInt(),
+      uri: json['uri'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+    );
 
-Map<String, dynamic> _$ImageMessageToJson(ImageMessage instance) =>
+Map<String, dynamic> _$ImageMessageTypeToJson(ImageMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

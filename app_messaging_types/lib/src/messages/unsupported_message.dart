@@ -12,9 +12,9 @@ part 'unsupported_message.g.dart';
 /// to unsupported.
 @JsonSerializable()
 @immutable
-abstract class UnsupportedMessage extends Message {
+abstract class UnsupportedMessageType extends Message {
   /// Creates an unsupported message.
-  const UnsupportedMessage._({
+  const UnsupportedMessageType._({
     required super.author,
     super.createdAt,
     required super.id,
@@ -28,7 +28,7 @@ abstract class UnsupportedMessage extends Message {
     super.updatedAt,
   }) : super(type: type ?? MessageType.unsupported);
 
-  const factory UnsupportedMessage({
+  const factory UnsupportedMessageType({
     required ChatUser author,
     int? createdAt,
     required String id,
@@ -40,11 +40,11 @@ abstract class UnsupportedMessage extends Message {
     Status? status,
     MessageType? type,
     int? updatedAt,
-  }) = _UnsupportedMessage;
+  }) = _UnsupportedMessageType;
 
   /// Creates an unsupported message from a map (decoded JSON).
-  factory UnsupportedMessage.fromJson(Map<String, dynamic> json) =>
-      _$UnsupportedMessageFromJson(json);
+  factory UnsupportedMessageType.fromJson(Map<String, dynamic> json) =>
+      _$UnsupportedMessageTypeFromJson(json);
 
   /// Equatable props.
   @override
@@ -78,12 +78,12 @@ abstract class UnsupportedMessage extends Message {
   /// Converts an unsupported message to the map representation,
   /// encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$UnsupportedMessageToJson(this);
+  Map<String, dynamic> toJson() => _$UnsupportedMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _UnsupportedMessage extends UnsupportedMessage {
-  const _UnsupportedMessage({
+class _UnsupportedMessageType extends UnsupportedMessageType {
+  const _UnsupportedMessageType({
     required super.author,
     super.createdAt,
     required super.id,
@@ -109,7 +109,7 @@ class _UnsupportedMessage extends UnsupportedMessage {
     dynamic showStatus = _Unset,
     dynamic status = _Unset,
     dynamic updatedAt = _Unset,
-  }) => _UnsupportedMessage(
+  }) => _UnsupportedMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     id: id ?? this.id,

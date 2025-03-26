@@ -6,29 +6,32 @@ part of 'file_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FileMessage _$FileMessageFromJson(Map<String, dynamic> json) => FileMessage(
-  author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
-  createdAt: (json['createdAt'] as num?)?.toInt(),
-  id: json['id'] as String,
-  isLoading: json['isLoading'] as bool?,
-  metadata: json['metadata'] as Map<String, dynamic>?,
-  mimeType: json['mimeType'] as String?,
-  name: json['name'] as String,
-  remoteId: json['remoteId'] as String?,
-  repliedMessage:
-      json['repliedMessage'] == null
-          ? null
-          : Message.fromJson(json['repliedMessage'] as Map<String, dynamic>),
-  roomId: json['roomId'] as String?,
-  showStatus: json['showStatus'] as bool?,
-  size: json['size'] as num,
-  status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
-  type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
-  updatedAt: (json['updatedAt'] as num?)?.toInt(),
-  uri: json['uri'] as String,
-);
+FileMessageType _$FileMessageTypeFromJson(Map<String, dynamic> json) =>
+    FileMessageType(
+      author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
+      createdAt: (json['createdAt'] as num?)?.toInt(),
+      id: json['id'] as String,
+      isLoading: json['isLoading'] as bool?,
+      metadata: json['metadata'] as Map<String, dynamic>?,
+      mimeType: json['mimeType'] as String?,
+      name: json['name'] as String,
+      remoteId: json['remoteId'] as String?,
+      repliedMessage:
+          json['repliedMessage'] == null
+              ? null
+              : Message.fromJson(
+                json['repliedMessage'] as Map<String, dynamic>,
+              ),
+      roomId: json['roomId'] as String?,
+      showStatus: json['showStatus'] as bool?,
+      size: json['size'] as num,
+      status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
+      updatedAt: (json['updatedAt'] as num?)?.toInt(),
+      uri: json['uri'] as String,
+    );
 
-Map<String, dynamic> _$FileMessageToJson(FileMessage instance) =>
+Map<String, dynamic> _$FileMessageTypeToJson(FileMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

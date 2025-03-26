@@ -2,19 +2,18 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 import '../message.dart';
-import 'video_message.dart';
 
 part 'partial_video.g.dart';
 
 /// A class that represents partial video message.
 @JsonSerializable()
 @immutable
-class PartialVideo {
+class PartialVideoMessageType {
   /// Creates a partial video message with all variables video can have.
   /// Use [VideoMessage] to create a full message.
   /// You can use [VideoMessage.fromPartial] constructor to create a full
   /// message from a partial one.
-  const PartialVideo({
+  const PartialVideoMessageType({
     this.height,
     this.metadata,
     required this.name,
@@ -25,8 +24,8 @@ class PartialVideo {
   });
 
   /// Creates a partial video message from a map (decoded JSON).
-  factory PartialVideo.fromJson(Map<String, dynamic> json) =>
-      _$PartialVideoFromJson(json);
+  factory PartialVideoMessageType.fromJson(Map<String, dynamic> json) =>
+      _$PartialVideoMessageTypeFromJson(json);
 
   /// Video height in pixels.
   final double? height;
@@ -50,5 +49,5 @@ class PartialVideo {
   final double? width;
 
   /// Converts a partial video message to the map representation, encodable to JSON.
-  Map<String, dynamic> toJson() => _$PartialVideoToJson(this);
+  Map<String, dynamic> toJson() => _$PartialVideoMessageTypeToJson(this);
 }

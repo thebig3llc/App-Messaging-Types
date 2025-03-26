@@ -6,8 +6,8 @@ part of 'custom_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CustomMessage _$CustomMessageFromJson(Map<String, dynamic> json) =>
-    CustomMessage(
+CustomMessageType _$CustomMessageTypeFromJson(Map<String, dynamic> json) =>
+    CustomMessageType(
       author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: (json['createdAt'] as num?)?.toInt(),
       id: json['id'] as String,
@@ -26,7 +26,7 @@ CustomMessage _$CustomMessageFromJson(Map<String, dynamic> json) =>
       updatedAt: (json['updatedAt'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$CustomMessageToJson(CustomMessage instance) =>
+Map<String, dynamic> _$CustomMessageTypeToJson(CustomMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

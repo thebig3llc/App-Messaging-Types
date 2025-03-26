@@ -10,9 +10,9 @@ part 'video_message.g.dart';
 /// A class that represents video message.
 @JsonSerializable()
 @immutable
-abstract class VideoMessage extends Message {
+abstract class VideoMessageType extends Message {
   /// Creates a video message.
-  const VideoMessage._({
+  const VideoMessageType._({
     required super.author,
     super.createdAt,
     this.height,
@@ -31,7 +31,7 @@ abstract class VideoMessage extends Message {
     this.width,
   }) : super(type: type ?? MessageType.video);
 
-  const factory VideoMessage({
+  const factory VideoMessageType({
     required ChatUser author,
     int? createdAt,
     double? height,
@@ -48,24 +48,24 @@ abstract class VideoMessage extends Message {
     int? updatedAt,
     required String uri,
     double? width,
-  }) = _VideoMessage;
+  }) = _VideoMessageType;
 
   /// Creates a video message from a map (decoded JSON).
-  factory VideoMessage.fromJson(Map<String, dynamic> json) =>
-      _$VideoMessageFromJson(json);
+  factory VideoMessageType.fromJson(Map<String, dynamic> json) =>
+      _$VideoMessageTypeFromJson(json);
 
   /// Creates a full video message from a partial one.
-  factory VideoMessage.fromPartial({
+  factory VideoMessageType.fromPartial({
     required ChatUser author,
     int? createdAt,
     required String id,
-    required PartialVideo partialVideo,
+    required PartialVideoMessageType partialVideo,
     String? remoteId,
     String? roomId,
     bool? showStatus,
     Status? status,
     int? updatedAt,
-  }) => _VideoMessage(
+  }) => _VideoMessageType(
     author: author,
     createdAt: createdAt,
     height: partialVideo.height,
@@ -140,12 +140,12 @@ abstract class VideoMessage extends Message {
 
   /// Converts an video message to the map representation, encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$VideoMessageToJson(this);
+  Map<String, dynamic> toJson() => _$VideoMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _VideoMessage extends VideoMessage {
-  const _VideoMessage({
+class _VideoMessageType extends VideoMessageType {
+  const _VideoMessageType({
     required super.author,
     super.createdAt,
     super.height,
@@ -181,7 +181,7 @@ class _VideoMessage extends VideoMessage {
     dynamic updatedAt = _Unset,
     String? uri,
     dynamic width = _Unset,
-  }) => _VideoMessage(
+  }) => _VideoMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     height: height == _Unset ? this.height : height as double?,

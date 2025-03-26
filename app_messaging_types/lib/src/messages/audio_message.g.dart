@@ -6,33 +6,36 @@ part of 'audio_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AudioMessage _$AudioMessageFromJson(Map<String, dynamic> json) => AudioMessage(
-  author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
-  createdAt: (json['createdAt'] as num?)?.toInt(),
-  duration: Duration(microseconds: (json['duration'] as num).toInt()),
-  id: json['id'] as String,
-  metadata: json['metadata'] as Map<String, dynamic>?,
-  mimeType: json['mimeType'] as String?,
-  name: json['name'] as String,
-  remoteId: json['remoteId'] as String?,
-  repliedMessage:
-      json['repliedMessage'] == null
-          ? null
-          : Message.fromJson(json['repliedMessage'] as Map<String, dynamic>),
-  roomId: json['roomId'] as String?,
-  showStatus: json['showStatus'] as bool?,
-  size: json['size'] as num,
-  status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
-  type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
-  updatedAt: (json['updatedAt'] as num?)?.toInt(),
-  uri: json['uri'] as String,
-  waveForm:
-      (json['waveForm'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
-);
+AudioMessageType _$AudioMessageTypeFromJson(Map<String, dynamic> json) =>
+    AudioMessageType(
+      author: ChatUser.fromJson(json['author'] as Map<String, dynamic>),
+      createdAt: (json['createdAt'] as num?)?.toInt(),
+      duration: Duration(microseconds: (json['duration'] as num).toInt()),
+      id: json['id'] as String,
+      metadata: json['metadata'] as Map<String, dynamic>?,
+      mimeType: json['mimeType'] as String?,
+      name: json['name'] as String,
+      remoteId: json['remoteId'] as String?,
+      repliedMessage:
+          json['repliedMessage'] == null
+              ? null
+              : Message.fromJson(
+                json['repliedMessage'] as Map<String, dynamic>,
+              ),
+      roomId: json['roomId'] as String?,
+      showStatus: json['showStatus'] as bool?,
+      size: json['size'] as num,
+      status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
+      type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
+      updatedAt: (json['updatedAt'] as num?)?.toInt(),
+      uri: json['uri'] as String,
+      waveForm:
+          (json['waveForm'] as List<dynamic>?)
+              ?.map((e) => (e as num).toDouble())
+              .toList(),
+    );
 
-Map<String, dynamic> _$AudioMessageToJson(AudioMessage instance) =>
+Map<String, dynamic> _$AudioMessageTypeToJson(AudioMessageType instance) =>
     <String, dynamic>{
       'author': instance.author,
       'createdAt': instance.createdAt,

@@ -10,9 +10,9 @@ part 'system_message.g.dart';
 /// you want.
 @JsonSerializable()
 @immutable
-abstract class SystemMessage extends Message {
+abstract class SystemMessageType extends Message {
   /// Creates a custom message.
-  const SystemMessage._({
+  const SystemMessageType._({
     super.author = const ChatUser(id: 'system'),
     super.createdAt,
     required super.id,
@@ -27,7 +27,7 @@ abstract class SystemMessage extends Message {
     super.updatedAt,
   }) : super(type: type ?? MessageType.system);
 
-  const factory SystemMessage({
+  const factory SystemMessageType({
     ChatUser author,
     int? createdAt,
     required String id,
@@ -40,11 +40,11 @@ abstract class SystemMessage extends Message {
     required String text,
     MessageType? type,
     int? updatedAt,
-  }) = _SystemMessage;
+  }) = _SystemMessageType;
 
   /// Creates a custom message from a map (decoded JSON).
-  factory SystemMessage.fromJson(Map<String, dynamic> json) =>
-      _$SystemMessageFromJson(json);
+  factory SystemMessageType.fromJson(Map<String, dynamic> json) =>
+      _$SystemMessageTypeFromJson(json);
 
   /// System message content (could be text or translation key).
   final String text;
@@ -83,12 +83,12 @@ abstract class SystemMessage extends Message {
   /// Converts a custom message to the map representation,
   /// encodable to JSON.
   @override
-  Map<String, dynamic> toJson() => _$SystemMessageToJson(this);
+  Map<String, dynamic> toJson() => _$SystemMessageTypeToJson(this);
 }
 
 /// A utility class to enable better copyWith.
-class _SystemMessage extends SystemMessage {
-  const _SystemMessage({
+class _SystemMessageType extends SystemMessageType {
+  const _SystemMessageType({
     super.author,
     super.createdAt,
     required super.id,
@@ -116,7 +116,7 @@ class _SystemMessage extends SystemMessage {
     dynamic status = _Unset,
     String? text,
     dynamic updatedAt = _Unset,
-  }) => _SystemMessage(
+  }) => _SystemMessageType(
     author: author ?? this.author,
     createdAt: createdAt == _Unset ? this.createdAt : createdAt as int?,
     id: id ?? this.id,
