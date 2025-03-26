@@ -13,7 +13,9 @@ PartialTextMessageType _$PartialTextMessageTypeFromJson(
   previewData:
       json['previewData'] == null
           ? null
-          : PreviewData.fromJson(json['previewData'] as Map<String, dynamic>),
+          : LinkPreviewData.fromJson(
+            json['previewData'] as Map<String, dynamic>,
+          ),
   repliedMessage:
       json['repliedMessage'] == null
           ? null

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 import '../message.dart';
-import '../preview_data.dart' show PreviewData;
+import '../preview_data.dart' show LinkPreviewData;
 import '../user.dart';
 import 'partial_text.dart';
 
@@ -34,7 +34,7 @@ abstract class TextMessageType extends Message {
     int? createdAt,
     required String id,
     Map<String, dynamic>? metadata,
-    PreviewData? previewData,
+    LinkPreviewData? previewData,
     String? remoteId,
     Message? repliedMessage,
     String? roomId,
@@ -76,8 +76,8 @@ abstract class TextMessageType extends Message {
     updatedAt: updatedAt,
   );
 
-  /// See [PreviewData].
-  final PreviewData? previewData;
+  /// See [LinkPreviewData].
+  final LinkPreviewData? previewData;
 
   /// ChatUser's message.
   final String text;
@@ -105,7 +105,7 @@ abstract class TextMessageType extends Message {
     int? createdAt,
     String? id,
     Map<String, dynamic>? metadata,
-    PreviewData? previewData,
+    LinkPreviewData? previewData,
     String? remoteId,
     Message? repliedMessage,
     String? roomId,
@@ -159,7 +159,9 @@ class _TextMessageType extends TextMessageType {
     metadata:
         metadata == _Unset ? this.metadata : metadata as Map<String, dynamic>?,
     previewData:
-        previewData == _Unset ? this.previewData : previewData as PreviewData?,
+        previewData == _Unset
+            ? this.previewData
+            : previewData as LinkPreviewData?,
     remoteId: remoteId == _Unset ? this.remoteId : remoteId as String?,
     repliedMessage:
         repliedMessage == _Unset

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 import '../message.dart';
-import '../preview_data.dart' show PreviewData;
+import '../preview_data.dart' show LinkPreviewData;
 
 part 'partial_text.g.dart';
 
@@ -29,7 +29,7 @@ class PartialTextMessageType {
   final Map<String, dynamic>? metadata;
 
   /// See [PreviewData].
-  final PreviewData? previewData;
+  final LinkPreviewData? previewData;
 
   /// Message that is being replied to with the current message.
   final Message? repliedMessage;
